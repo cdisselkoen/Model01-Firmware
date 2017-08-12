@@ -39,13 +39,13 @@ ___,      Key_F1,           Key_F2,      Key_F3,        Key_F4,        Key_F5,  
 Key_Tab,  Key_mouseBtnR,    Key_mouseUp, Key_mouseBtnL, Key_mouseWarpNW, Key_mouseWarpNE, Key_PageDown, \
 Key_Home, Key_mouseL,       Key_mouseDn, Key_mouseR,    Key_mouseWarpSW, Key_mouseWarpSE,                   \
 Key_End,  Key_PrintScreen,  Key_Insert,  Key_mouseBtnM, Key_mouseWarpEnd, ___,            Key_PageUp, \
-                                            Key_Delete, OSM(LeftShift), OSM(LeftControl), ___,  \
-                                                                ___,   \
+                                          Key_Delete, OSM(LeftShift), OSM(LeftControl), ___,  \
+                                                              ___,   \
 \
 Consumer_ScanPreviousTrack, Key_F6,                 Key_F7,                   Key_F8,                  Key_F9,          Key_F10,          Key_F11, \
-Consumer_PlaySlashPause,    Consumer_ScanNextTrack, Key_LeftCurlyBracket,     Key_RightCurlyBracket,   Key_LeftBracket, Key_RightBracket, Key_F12, \
-                            Key_LeftArrow,          Key_DownArrow,            Key_UpArrow,             Key_RightArrow,  ___,              ___, \
-Key_PcApplication,          Key_Mute,               Consumer_VolumeDecrement, Consumer_VolumeIncrement, ___,            Key_Backslash,    Key_Pipe, \
+Consumer_PlaySlashPause,    Consumer_ScanNextTrack, Key_LeftCurlyBracket,     Key_RightCurlyBracket,   Key_LeftParen,   Key_RightParen, Key_F12, \
+                            Key_LeftArrow,          Key_DownArrow,            Key_UpArrow,             Key_RightArrow,  Key_Pipe,              ___, \
+Consumer_Mute,              Consumer_VolumeIncrement, Consumer_VolumeDecrement, Key_LeftBracket,       Key_RightBracket, Key_Backslash,    Key_Pipe, \
 OSM(LeftAlt), OSM(LeftGui), Key_Enter, Key_Escape, \
 ___ \
 )
@@ -77,10 +77,10 @@ ___ \
     Key_Backspace, OSM(LeftShift), OSM(LeftControl), OSL(2),         \
                           Key_Keymap1_Momentary,     \
 \
-    Macro_Any,       Key_6, Key_7, Key_8,     Key_9,      Key_0,         Key_ToggleNumlock, \
-    Key_Enter,     Key_Y, Key_U, Key_I,     Key_O,      Key_P,         Key_Equals,       \
-                   Key_H, Key_J, Key_K,     Key_L,      Key_Semicolon, Key_Quote,       \
-    Key_LeftGui,  Key_N, Key_M, Key_Comma, Key_Period, Key_Slash,     Key_Minus,       \
+    Macro_Any, Key_6, Key_7, Key_8,     Key_9,      Key_0,         Key_ToggleNumlock, \
+    Key_Enter, Key_Y, Key_U, Key_I,     Key_O,      Key_P,         Key_Equals,       \
+               Key_H, Key_J, Key_K,     Key_L,      Key_Semicolon, Key_Quote,       \
+    ___,       Key_N, Key_M, Key_Comma, Key_Period, Key_Slash,     Key_Minus,       \
     OSM(LeftAlt), OSM(LeftGui), Key_Spacebar, Key_Delete,                   \
     Key_Keymap1_Momentary \
 )
@@ -122,10 +122,10 @@ void setup() {
   Kaleidoscope.use(&BootGreetingEffect,
                    &LEDControl, &LEDOff,
                    &LEDRainbowEffect, &LEDRainbowWaveEffect, &LEDChaseEffect,
-                   &solidRed, &solidOrange, &solidYellow, &solidGreen, &solidBlue, &solidViolet,
+                   &solidYellow,
                    &LEDBreatheEffect,
-                   &LetterGuesserEffect,
                    &StalkerEffect,
+                   &LetterGuesserEffect,
                    &NumLock,
 
                    &OneShot,
@@ -136,8 +136,8 @@ void setup() {
                    NULL);
 
   NumLock.numPadLayer = NUMPAD_KEYMAP;
-  LEDRainbowEffect.brightness(150);
-  LEDRainbowWaveEffect.brightness(150);
+  LEDRainbowEffect.brightness(120);
+  LEDRainbowWaveEffect.brightness(120);
   StalkerEffect.variant = STALKER(BlazingTrail);
   LEDRainbowEffect.activate();
 }
