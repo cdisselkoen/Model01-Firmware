@@ -32,6 +32,8 @@
 #define Macro_VersionInfo M(MACRO_VERSION_INFO)
 #define MACRO_ANY 2
 #define Macro_Any M(MACRO_ANY)
+#define MACRO_LEDTOGGLE 3
+#define Macro_LEDToggle M(MACRO_LEDTOGGLE)
 #define NUMPAD_KEYMAP 2
 
 #define GENERIC_FN2  KEYMAP_STACKED ( \
@@ -71,9 +73,9 @@ ___ \
 
 #define QWERTY KEYMAP_STACKED ( \
     ___,          Key_1, Key_2, Key_3, Key_4, Key_5, Key_LEDEffectNext, \
-    Key_Backtick, Key_Q, Key_W, Key_E, Key_R, Key_T, Key_Home,           \
-    Key_Tab,   Key_A, Key_S, Key_D, Key_F, Key_G,                    \
-    Key_PageDown, Key_Z, Key_X, Key_C, Key_V, Key_B, Key_End,        \
+    Key_Backtick, Key_Q, Key_W, Key_E, Key_R, Key_T, Macro_LEDToggle,   \
+    Key_Tab,      Key_A, Key_S, Key_D, Key_F, Key_G,                    \
+    Key_Home,     Key_Z, Key_X, Key_C, Key_V, Key_B, Key_End,        \
     Key_Backspace, OSM(LeftShift), OSM(LeftControl), OSL(2),         \
                           Key_Keymap1_Momentary,     \
 \
@@ -106,6 +108,11 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
 
     if (keyIsPressed(keyState))
       kaleidoscope::hid::pressKey(lastKey);
+  } else if (macroIndex == MACRO_LEDTOGGLE) {
+    if(keyToggledOn(keyState)) {
+      if(LEDControl.get_mode() == &LEDOff) LEDControl.next_mode();
+      else LEDOff.activate();
+    }
   }
   return MACRO_NONE;
 }
