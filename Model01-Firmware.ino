@@ -29,27 +29,24 @@
 #include "Kaleidoscope-Model01-TestMode.h"
 
 #define MACRO_VERSION_INFO 1
-#define Macro_VersionInfo M(MACRO_VERSION_INFO)
 #define MACRO_ANY 2
-#define Macro_Any M(MACRO_ANY)
 #define MACRO_LEDTOGGLE 3
-#define Macro_LEDToggle M(MACRO_LEDTOGGLE)
 
 enum { QWERTY, FUNCTION, NUMPAD };  // layers
 
 const Key keymaps[][ROWS][COLS] PROGMEM = {
   [QWERTY] = KEYMAP_STACKED
   (___,          Key_1, Key_2, Key_3, Key_4, Key_5, Key_LEDEffectNext,
-   Key_Backtick, Key_Q, Key_W, Key_E, Key_R, Key_T, Macro_LEDToggle,
+   Key_Backtick, Key_Q, Key_W, Key_E, Key_R, Key_T, M(MACRO_LEDTOGGLE),
    Key_Tab,      Key_A, Key_S, Key_D, Key_F, Key_G,
    Key_Home,     Key_Z, Key_X, Key_C, Key_V, Key_B, Key_End,
    Key_Backspace, OSM(LeftShift), OSM(LeftControl), OSL(2),
    Key_Keymap1_Momentary,
 
-   Macro_Any, Key_6, Key_7, Key_8,     Key_9,      Key_0,         Key_KeypadNumLock,
-   Key_Enter, Key_Y, Key_U, Key_I,     Key_O,      Key_P,         Key_Equals,
-              Key_H, Key_J, Key_K,     Key_L,      Key_Semicolon, Key_Quote,
-   ___,       Key_N, Key_M, Key_Comma, Key_Period, Key_Slash,     Key_Minus,
+   M(MACRO_ANY), Key_6, Key_7, Key_8,     Key_9,      Key_0,         Key_KeypadNumLock,
+   Key_Enter,    Key_Y, Key_U, Key_I,     Key_O,      Key_P,         Key_Equals,
+                 Key_H, Key_J, Key_K,     Key_L,      Key_Semicolon, Key_Quote,
+   ___,          Key_N, Key_M, Key_Comma, Key_Period, Key_Slash,     Key_Minus,
    OSM(LeftAlt), OSM(LeftGui), Key_Spacebar, Key_Delete,
    Key_Keymap1_Momentary),
 
@@ -76,10 +73,10 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ___, ___, ___, ___,
    ___,
 
-   Macro_VersionInfo,    ___, Key_Keypad7, Key_Keypad8, Key_Keypad9,   Key_KeypadSubtract, ___,
-   ___,                  ___, Key_Keypad4, Key_Keypad5, Key_Keypad6,   Key_KeypadAdd,      ___,
-                         ___, Key_Keypad1, Key_Keypad2, Key_Keypad3,   Key_KeypadMultiply, Key_Quote,
-   ___,                  ___, Key_Keypad0, Key_Comma,   Key_KeypadDot, Key_KeypadDivide,   Key_Enter,
+   M(MACRO_VERSION_INFO), ___, Key_Keypad7, Key_Keypad8, Key_Keypad9,   Key_KeypadSubtract, ___,
+   ___,                   ___, Key_Keypad4, Key_Keypad5, Key_Keypad6,   Key_KeypadAdd,      ___,
+                          ___, Key_Keypad1, Key_Keypad2, Key_Keypad3,   Key_KeypadMultiply, Key_Quote,
+   ___,                   ___, Key_Keypad0, Key_Comma,   Key_KeypadDot, Key_KeypadDivide,   Key_Enter,
    ___, ___, ___, ___,
    ___)
 };
