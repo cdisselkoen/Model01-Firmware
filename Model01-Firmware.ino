@@ -79,7 +79,7 @@ ___ \
     Key_Backspace, OSM(LeftShift), OSM(LeftControl), OSL(2),         \
                           Key_Keymap1_Momentary,     \
 \
-    Macro_Any, Key_6, Key_7, Key_8,     Key_9,      Key_0,         Key_ToggleNumlock, \
+    Macro_Any, Key_6, Key_7, Key_8,     Key_9,      Key_0,         Key_KeypadNumLock, \
     Key_Enter, Key_Y, Key_U, Key_I,     Key_O,      Key_P,         Key_Equals,       \
                Key_H, Key_J, Key_K,     Key_L,      Key_Semicolon, Key_Quote,       \
     ___,       Key_N, Key_M, Key_Comma, Key_Period, Key_Slash,     Key_Minus,       \
@@ -96,9 +96,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
 static kaleidoscope::LEDSolidColor solidYellow(130, 100, 0);
 
 const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
-  if (macroIndex == TOGGLENUMLOCK && keyToggledOn(keyState)) {
-    return NumLock.toggle();
-  } else if (macroIndex == 1 && keyToggledOn(keyState)) {
+  if (macroIndex == MACRO_VERSION_INFO && keyToggledOn(keyState)) {
     Macros.type(PSTR("Keyboardio Model 01 - Kaleidoscope "));
     Macros.type(PSTR(BUILD_INFORMATION));
   } else if (macroIndex == MACRO_ANY) {
@@ -118,8 +116,7 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
 }
 
 void setup() {
-  Kaleidoscope.setup(KEYMAP_SIZE);
-  BootKeyboard.begin();
+  Kaleidoscope.setup();
   Kaleidoscope.use(&BootGreetingEffect,
                    &LEDControl, &LEDOff,
                    &LEDRainbowEffect, &LEDRainbowWaveEffect, &LEDChaseEffect,
