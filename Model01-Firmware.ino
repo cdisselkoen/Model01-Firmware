@@ -11,6 +11,7 @@
 
 #include "Kaleidoscope-MouseKeys.h"
 #include "Kaleidoscope-Macros.h"
+#include "Kaleidoscope-MacrosOnTheFly.h"
 #include "Kaleidoscope-LEDControl.h"
 #include "Kaleidoscope-Numlock.h"
 #include "Kaleidoscope-OneShot.h"
@@ -60,8 +61,8 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
 
    Consumer_ScanPreviousTrack, Key_F6,                   Key_F7,                   Key_F8,                Key_F9,           Key_F10,        Key_F11,
    Consumer_PlaySlashPause,    Consumer_ScanNextTrack,   Key_LeftCurlyBracket,     Key_RightCurlyBracket, Key_LeftParen,    Key_RightParen, Key_F12,
-                               Key_LeftArrow,            Key_DownArrow,            Key_UpArrow,           Key_RightArrow,   Key_Pipe,       ___,
-   Consumer_Mute,              Consumer_VolumeIncrement, Consumer_VolumeDecrement, Key_LeftBracket,       Key_RightBracket, Key_Backslash,  Key_Pipe,
+                               Key_LeftArrow,            Key_DownArrow,            Key_UpArrow,           Key_RightArrow,   Key_Pipe,       Key_MacroPlay,
+   Consumer_Mute,              Consumer_VolumeIncrement, Consumer_VolumeDecrement, Key_LeftBracket,       Key_RightBracket, Key_Backslash,  Key_MacroRec,
    OSM(LeftAlt), OSM(LeftGui), Key_Enter, Key_Escape,
    ___),
 
@@ -117,6 +118,7 @@ void setup() {
                    &OneShot,
                    &EscapeOneShot,
                    &Macros,
+                   &MacrosOnTheFly,
                    &MouseKeys,
                    &ActiveModColorEffect,
                    NULL);
