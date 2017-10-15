@@ -32,6 +32,7 @@
 #define MACRO_VERSION_INFO 1
 #define MACRO_ANY 2
 #define MACRO_LEDTOGGLE 3
+#define MACRO_RAPIDFIRECLICK 4
 
 enum { QWERTY, FUNCTION, NUMPAD };  // layers
 
@@ -54,8 +55,8 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
   [FUNCTION] = KEYMAP_STACKED
   (___,      Key_F1,           Key_F2,      Key_F3,        Key_F4,        Key_F5,           XXX,
    Key_Tab,  Key_mouseBtnR,    Key_mouseUp, Key_mouseBtnL, Key_mouseWarpNW, Key_mouseWarpNE, Key_PageDown,
-   Key_Home, Key_mouseL,       Key_mouseDn, Key_mouseR,    Key_mouseWarpSW, Key_mouseWarpSE,
-   Key_End,  Key_PrintScreen,  Key_Insert,  Key_mouseBtnM, Key_mouseWarpEnd, ___,            Key_PageUp,
+   ___,      Key_mouseL,       Key_mouseDn, Key_mouseR,    Key_mouseWarpSW, Key_mouseWarpSE,
+   M(MACRO_RAPIDFIRECLICK), Key_PrintScreen, Key_Insert, Key_mouseBtnM, Key_mouseWarpEnd, ___, Key_PageUp,
    Key_Delete, OSM(LeftShift), OSM(LeftControl), ___,
                                                               ___,
 
@@ -99,6 +100,15 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
     if(keyToggledOn(keyState)) {
       if(LEDControl.get_mode() == &LEDOff) LEDControl.next_mode();
       else LEDOff.activate();
+    }
+  } else if (macroIndex == MACRO_RAPIDFIRECLICK) {
+    if(keyIsPressed(keyState)) {  // continuously while pressed
+      static unsigned timer = 0;
+      if(timer == 0) {
+        timer = 10;
+        return MACRO(Tr(Key_mouseBtnL));
+      }
+      timer--;
     }
   }
   return MACRO_NONE;
