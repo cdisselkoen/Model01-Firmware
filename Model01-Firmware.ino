@@ -9,6 +9,7 @@
 #endif
 
 
+#include "Kaleidoscope.h"
 #include "Kaleidoscope-MouseKeys.h"
 #include "Kaleidoscope-Macros.h"
 #include "Kaleidoscope-MacrosOnTheFly.h"
@@ -16,7 +17,6 @@
 #include "Kaleidoscope-Numlock.h"
 #include "Kaleidoscope-OneShot.h"
 #include "Kaleidoscope-Escape-OneShot.h"
-#include "Kaleidoscope.h"
 
 #include "LED-Off.h"
 #include "Kaleidoscope-LEDEffect-BootGreeting.h"
@@ -25,9 +25,10 @@
 #include "Kaleidoscope-LEDEffect-Chase.h"
 #include "Kaleidoscope-LEDEffect-Rainbow.h"
 #include "Kaleidoscope-LED-Stalker.h"
+#ifndef ARDUINO_VIRTUAL
 #include "Kaleidoscope-LED-LetterGuesser.h"
+#endif
 #include "Kaleidoscope-LED-ActiveModColor.h"
-#include "Kaleidoscope-Model01-TestMode.h"
 
 #define MACRO_VERSION_INFO 1
 #define MACRO_ANY 2
@@ -122,7 +123,9 @@ void setup() {
                    &solidYellow,
                    &LEDBreatheEffect,
                    &StalkerEffect,
+#ifndef ARDUINO_VIRTUAL
                    &LetterGuesserEffect,
+#endif
                    &NumLock,
 
                    &OneShot,
