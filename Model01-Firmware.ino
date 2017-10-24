@@ -117,8 +117,7 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
 
 void setup() {
   Kaleidoscope.setup();
-  Kaleidoscope.use(&BootGreetingEffect,
-                   &LEDControl, &LEDOff,
+  Kaleidoscope.use(&LEDControl, &LEDOff,
                    &LEDRainbowEffect, &LEDRainbowWaveEffect, &LEDChaseEffect,
                    &solidYellow,
                    &LEDBreatheEffect,
