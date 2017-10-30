@@ -44,6 +44,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    Key_Backtick,     Key_Q, Key_W, Key_E, Key_R, Key_T, Key_MacroRec,
    Key_Tab,          Key_A, Key_S, Key_D, Key_F, Key_G,
    Key_Home,         Key_Z, Key_X, Key_C, Key_V, Key_B, Key_End,
+
    Key_Backspace, OSM(LeftShift), OSM(LeftControl), OSL(NUMPAD),
    ShiftToLayer(FUNCTION),
 
@@ -51,6 +52,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    Key_MacroPlay,      Key_Y, Key_U, Key_I,     Key_O,      Key_P,         Key_Equals,
                        Key_H, Key_J, Key_K,     Key_L,      Key_Semicolon, Key_Quote,
    M(MACRO_LEDTOGGLE), Key_N, Key_M, Key_Comma, Key_Period, Key_Slash,     Key_Minus,
+
    OSM(LeftAlt), OSM(LeftGui), Key_Spacebar, Key_Delete,
    ShiftToLayer(FUNCTION)),
 
@@ -59,6 +61,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    XXX,    S(N1), S(N2), S(N3), S(N4), S(N5), S(ST1),
    S(FN),  S(S1), S(TL), S(PL), S(HL), S(ST1),
    S(PWR), S(S2), S(KL), S(WL), S(RL), S(ST2), S(ST2),
+
    S(RE1), S(A), S(O), XXX,
    ShiftToLayer(FUNCTION),
 
@@ -66,6 +69,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    S(ST3), S(N8),  S(N9), S(NA), S(NB), S(NC), XXX,
    S(ST3), S(FR),  S(PR), S(LR), S(TR), S(DR),
    S(ST4), S(ST4), S(RR), S(BR), S(GR), S(SR), S(ZR),
+
    XXX, S(E), S(U), S(RE2),
    ShiftToLayer(FUNCTION)),
 
@@ -73,6 +77,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
   (___,      Key_F1,           Key_F2,      Key_F3,        Key_F4,        Key_F5,           XXX,
    Key_Tab,  Key_mouseBtnR,    Key_mouseUp, Key_mouseBtnL, Key_mouseWarpNW, Key_mouseWarpNE, Key_PageDown,
    ___,      Key_mouseL,       Key_mouseDn, Key_mouseR,    Key_mouseWarpSW, Key_mouseWarpSE,
+
    M(MACRO_RAPIDFIRECLICK), Key_PrintScreen, Key_Insert, Key_mouseBtnM, Key_mouseWarpEnd, ___, Key_PageUp,
    Key_Delete, OSM(LeftShift), OSM(LeftControl), ___,
                                                               ___,
@@ -81,6 +86,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    Consumer_PlaySlashPause,    Consumer_ScanNextTrack,   Key_LeftCurlyBracket,     Key_RightCurlyBracket, Key_LeftParen,    Key_RightParen, Key_F12,
                                Key_LeftArrow,            Key_DownArrow,            Key_UpArrow,           Key_RightArrow,   Key_Pipe,       ___,
    Consumer_Mute,              Consumer_VolumeIncrement, Consumer_VolumeDecrement, Key_LeftBracket,       Key_RightBracket, Key_Backslash,  ___,
+
    OSM(LeftAlt), OSM(LeftGui), Key_Enter, Key_Escape,
    ___),
 
@@ -89,6 +95,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ___, ___, ___, ___, ___, ___, ___,
    ___, ___, ___, ___, ___, ___,
    ___, ___, ___, ___, ___, ___, ___,
+
    ___, ___, ___, ___,
    ___,
 
@@ -96,6 +103,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ___,                   ___, Key_Keypad4, Key_Keypad5, Key_Keypad6,   Key_KeypadAdd,      ___,
                           ___, Key_Keypad1, Key_Keypad2, Key_Keypad3,   Key_KeypadMultiply, Key_Quote,
    ___,                   ___, Key_Keypad0, Key_Comma,   Key_KeypadDot, Key_KeypadDivide,   Key_Enter,
+
    ___, ___, ___, ___,
    ___)
 };
