@@ -36,11 +36,26 @@
 #define MACRO_LEDTOGGLE 3
 #define MACRO_RAPIDFIRECLICK 4
 
-enum { STENO, QWERTY, FUNCTION, NUMPAD };  // layers
+enum { QWERTY, STENO, FUNCTION, NUMPAD };  // layers
 
 const Key keymaps[][ROWS][COLS] PROGMEM = {
+  [QWERTY] = KEYMAP_STACKED
+  (LockLayer(STENO), Key_1, Key_2, Key_3, Key_4, Key_5, Key_LEDEffectNext,
+   Key_Backtick,     Key_Q, Key_W, Key_E, Key_R, Key_T, Key_MacroRec,
+   Key_Tab,          Key_A, Key_S, Key_D, Key_F, Key_G,
+   Key_Home,         Key_Z, Key_X, Key_C, Key_V, Key_B, Key_End,
+   Key_Backspace, OSM(LeftShift), OSM(LeftControl), OSL(NUMPAD),
+   ShiftToLayer(FUNCTION),
+
+   M(MACRO_ANY),       Key_6, Key_7, Key_8,     Key_9,      Key_0,         Key_KeypadNumLock,
+   Key_MacroPlay,      Key_Y, Key_U, Key_I,     Key_O,      Key_P,         Key_Equals,
+                       Key_H, Key_J, Key_K,     Key_L,      Key_Semicolon, Key_Quote,
+   M(MACRO_LEDTOGGLE), Key_N, Key_M, Key_Comma, Key_Period, Key_Slash,     Key_Minus,
+   OSM(LeftAlt), OSM(LeftGui), Key_Spacebar, Key_Delete,
+   ShiftToLayer(FUNCTION)),
+
   [STENO] = KEYMAP_STACKED
-  (LockLayer(QWERTY),    XXX,   XXX,   XXX,   XXX,   XXX,   S(N6),
+  (___,    XXX,   XXX,   XXX,   XXX,   XXX,   S(N6),
    XXX,    S(N1), S(N2), S(N3), S(N4), S(N5), S(ST1),
    S(FN),  S(S1), S(TL), S(PL), S(HL), S(ST1),
    S(PWR), S(S2), S(KL), S(WL), S(RL), S(ST2), S(ST2),
@@ -52,21 +67,6 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    S(ST3), S(FR),  S(PR), S(LR), S(TR), S(DR),
    S(ST4), S(ST4), S(RR), S(BR), S(GR), S(SR), S(ZR),
    XXX, S(E), S(U), S(RE2),
-   ShiftToLayer(FUNCTION)),
-
-  [QWERTY] = KEYMAP_STACKED
-  (___,          Key_1, Key_2, Key_3, Key_4, Key_5, Key_LEDEffectNext,
-   Key_Backtick, Key_Q, Key_W, Key_E, Key_R, Key_T, Key_MacroRec,
-   Key_Tab,      Key_A, Key_S, Key_D, Key_F, Key_G,
-   Key_Home,     Key_Z, Key_X, Key_C, Key_V, Key_B, Key_End,
-   Key_Backspace, OSM(LeftShift), OSM(LeftControl), OSL(NUMPAD),
-   ShiftToLayer(FUNCTION),
-
-   M(MACRO_ANY),       Key_6, Key_7, Key_8,     Key_9,      Key_0,         Key_KeypadNumLock,
-   Key_MacroPlay,      Key_Y, Key_U, Key_I,     Key_O,      Key_P,         Key_Equals,
-                       Key_H, Key_J, Key_K,     Key_L,      Key_Semicolon, Key_Quote,
-   M(MACRO_LEDTOGGLE), Key_N, Key_M, Key_Comma, Key_Period, Key_Slash,     Key_Minus,
-   OSM(LeftAlt), OSM(LeftGui), Key_Spacebar, Key_Delete,
    ShiftToLayer(FUNCTION)),
 
   [FUNCTION] = KEYMAP_STACKED
