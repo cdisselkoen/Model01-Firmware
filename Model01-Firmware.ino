@@ -62,16 +62,14 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    XXX,    S(N1), S(N2), S(N3), S(N4), S(N5), S(ST1),
    S(FN),  S(S1), S(TL), S(PL), S(HL), S(ST1),
    S(PWR), S(S2), S(KL), S(WL), S(RL), S(ST2), S(ST2),
-
-   S(RE1), S(A), S(O), XXX,
+   S(RE1), XXX, S(A), S(O),
    ShiftToLayer(FUNCTION),
 
    S(N7),  XXX,    XXX,   XXX,   XXX,   XXX,   XXX,
    S(ST3), S(N8),  S(N9), S(NA), S(NB), S(NC), XXX,
    S(ST3), S(FR),  S(PR), S(LR), S(TR), S(DR),
    S(ST4), S(ST4), S(RR), S(BR), S(GR), S(SR), S(ZR),
-
-   XXX, S(E), S(U), S(RE2),
+   S(E), S(U), XXX, S(RE2),
    ShiftToLayer(FUNCTION)),
 
   [FUNCTION] = KEYMAP_STACKED
