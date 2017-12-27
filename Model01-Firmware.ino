@@ -45,8 +45,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    Key_Backtick,     Key_Q, Key_W, Key_E, Key_R, Key_T, Key_MacroRec,
    Key_Tab,          Key_A, Key_S, Key_D, Key_F, Key_G,
    Key_Home,         Key_Z, Key_X, Key_C, Key_V, Key_B, Key_End,
-
-   Key_Backspace, OSM(LeftShift), OSM(LeftControl), OSL(NUMPAD),
+   Key_Backspace, Key_LeftShift, Key_LeftControl, OSL(NUMPAD),
    ShiftToLayer(FUNCTION),
 
    M(MACRO_ANY),       Key_6, Key_7, Key_8,     Key_9,      Key_0,         Key_KeypadNumLock,
@@ -54,7 +53,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
                        Key_H, Key_J, Key_K,     Key_L,      Key_Semicolon, Key_Quote,
    M(MACRO_LEDTOGGLE), Key_N, Key_M, Key_Comma, Key_Period, Key_Slash,     Key_Minus,
 
-   OSM(LeftAlt), OSM(LeftGui), Key_Spacebar, Key_Delete,
+   Key_LeftAlt, Key_LeftGui, Key_Spacebar, Key_Delete,
    ShiftToLayer(FUNCTION)),
 
   [STENO] = KEYMAP_STACKED
@@ -76,17 +75,15 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
   (___,      Key_F1,           Key_F2,      Key_F3,        Key_F4,        Key_F5,           XXX,
    Key_Tab,  Key_mouseBtnR,    Key_mouseUp, Key_mouseBtnL, Key_mouseWarpNW, Key_mouseWarpNE, Key_PageDown,
    ___,      Key_mouseL,       Key_mouseDn, Key_mouseR,    Key_mouseWarpSW, Key_mouseWarpSE,
-
    M(MACRO_RAPIDFIRECLICK), Key_PrintScreen, Key_Insert, Key_mouseBtnM, Key_mouseWarpEnd, ___, Key_PageUp,
-   Key_Delete, OSM(LeftShift), OSM(LeftControl), ___,
+   Key_Delete, ___, ___, ___,
                                                               ___,
 
    Consumer_ScanPreviousTrack, Key_F6,                   Key_F7,                   Key_F8,                Key_F9,           Key_F10,        Key_F11,
    Consumer_PlaySlashPause,    Consumer_ScanNextTrack,   Key_LeftCurlyBracket,     Key_RightCurlyBracket, Key_LeftParen,    Key_RightParen, Key_F12,
                                Key_LeftArrow,            Key_DownArrow,            Key_UpArrow,           Key_RightArrow,   Key_Pipe,       ___,
    Consumer_Mute,              Consumer_VolumeIncrement, Consumer_VolumeDecrement, Key_LeftBracket,       Key_RightBracket, Key_Backslash,  ___,
-
-   OSM(LeftAlt), OSM(LeftGui), Key_Enter, Key_Escape,
+   ___, ___, Key_Enter, Key_Escape,
    ___),
 
   [NUMPAD] = KEYMAP_STACKED
