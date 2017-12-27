@@ -37,7 +37,7 @@
 #define MACRO_LEDTOGGLE 3
 #define MACRO_RAPIDFIRECLICK 4
 
-enum { QWERTY, STENO, FUNCTION, NUMPAD };  // layers
+enum { QWERTY, STENO, FUNCTION, NUMPAD, STARCRAFT1, STARCRAFT2 };  // layers
 
 const Key keymaps[][ROWS][COLS] PROGMEM = {
   [QWERTY] = KEYMAP_STACKED
@@ -48,11 +48,10 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    Key_Backspace, Key_LeftShift, Key_LeftControl, OSL(NUMPAD),
    ShiftToLayer(FUNCTION),
 
-   M(MACRO_ANY),       Key_6, Key_7, Key_8,     Key_9,      Key_0,         Key_KeypadNumLock,
-   Key_MacroPlay,      Key_Y, Key_U, Key_I,     Key_O,      Key_P,         Key_Equals,
-                       Key_H, Key_J, Key_K,     Key_L,      Key_Semicolon, Key_Quote,
-   M(MACRO_LEDTOGGLE), Key_N, Key_M, Key_Comma, Key_Period, Key_Slash,     Key_Minus,
-
+   M(MACRO_LEDTOGGLE),    Key_6, Key_7, Key_8,     Key_9,      Key_0,         Key_KeypadNumLock,
+   Key_MacroPlay,         Key_Y, Key_U, Key_I,     Key_O,      Key_P,         Key_Equals,
+                          Key_H, Key_J, Key_K,     Key_L,      Key_Semicolon, Key_Quote,
+   LockLayer(STARCRAFT1), Key_N, Key_M, Key_Comma, Key_Period, Key_Slash,     Key_Minus,
    Key_LeftAlt, Key_LeftGui, Key_Spacebar, Key_Delete,
    ShiftToLayer(FUNCTION)),
 
@@ -99,7 +98,38 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ___,                   ___, Key_Keypad4, Key_Keypad5, Key_Keypad6,   Key_KeypadAdd,      ___,
                           ___, Key_Keypad1, Key_Keypad2, Key_Keypad3,   Key_KeypadMultiply, Key_Quote,
    ___,                   ___, Key_Keypad0, Key_Comma,   Key_KeypadDot, Key_KeypadDivide,   Key_Enter,
+   ___, ___, ___, ___,
+   ___),
 
+  [STARCRAFT1] = KEYMAP_STACKED
+  (XXX,       Key_1, Key_2, Key_3, Key_4, Key_5, XXX,
+   Key_Comma, Key_Q, Key_W, Key_E, Key_R, Key_T, XXX,
+   Key_Tab,   Key_A, Key_S, Key_D, Key_F, Key_G,
+   Key_Minus, Key_Z, Key_X, Key_C, Key_V, Key_B, Key_Escape,
+   
+   Key_0, Key_LeftShift, Key_LeftControl, Key_LeftAlt,
+   ShiftToLayer(STARCRAFT2),
+
+   ___, ___, ___, ___, ___, ___, ___,
+   ___, ___, ___, ___, ___, ___, ___,
+        ___, ___, ___, ___, ___, ___,
+   ___, ___, ___, ___, ___, ___, ___,
+   ___, ___, ___, ___,
+   ___),
+ 
+  [STARCRAFT2] = KEYMAP_STACKED
+  (___,     Key_F1, Key_F2, Key_F3, Key_F4,        Key_F5,    ___,
+   Key_F11, Key_6,  Key_7,  Key_8,  Key_F9,        Key_F10,   ___,
+   Key_H,   Key_J,  Key_K,  Key_L,  Key_Semicolon, Key_Quote,
+   Key_N,   Key_M,  Key_F6, Key_F7, Key_F8,        Key_Slash, ___,
+   
+   Key_9, Key_LeftShift, Key_LeftControl, Key_LeftAlt,
+   ShiftToLayer(STARCRAFT2),
+
+   ___, ___, ___, ___, ___, ___, ___,
+   ___, ___, ___, ___, ___, ___, ___,
+        ___, ___, ___, ___, ___, ___,
+   ___, ___, ___, ___, ___, ___, ___,
    ___, ___, ___, ___,
    ___)
 };
