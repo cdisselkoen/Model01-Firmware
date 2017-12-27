@@ -20,14 +20,15 @@
 #include "Kaleidoscope-Steno.h"
 
 #include "LED-Off.h"
-#include "Kaleidoscope-LEDEffect-BootGreeting.h"
-#include "Kaleidoscope-LEDEffect-SolidColor.h"
+//#include "Kaleidoscope-LEDEffect-BootGreeting.h"
+//#include "Kaleidoscope-LEDEffect-SolidColor.h"
 #include "Kaleidoscope-LEDEffect-Breathe.h"
-#include "Kaleidoscope-LEDEffect-Chase.h"
+//#include "Kaleidoscope-LEDEffect-Chase.h"
 #include "Kaleidoscope-LEDEffect-Rainbow.h"
 #include "Kaleidoscope-LED-Stalker.h"
+#include "Kaleidoscope-LEDEffect-DigitalRain.h"
 #ifndef ARDUINO_VIRTUAL
-#include "Kaleidoscope-LED-LetterGuesser.h"
+//#include "Kaleidoscope-LED-LetterGuesser.h"
 #endif
 #include "Kaleidoscope-LED-ActiveModColor.h"
 
@@ -108,7 +109,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    ___)
 };
 
-static kaleidoscope::LEDSolidColor solidYellow(130, 100, 0);
+//static kaleidoscope::LEDSolidColor solidYellow(130, 100, 0);
 
 const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
   if (macroIndex == MACRO_VERSION_INFO && keyToggledOn(keyState)) {
@@ -143,12 +144,13 @@ void setup() {
   Serial.begin(9600);
   Kaleidoscope.setup();
   Kaleidoscope.use(&LEDControl, &LEDOff,
-                   &LEDRainbowEffect, &LEDRainbowWaveEffect, &LEDChaseEffect,
-                   &solidYellow,
-                   &LEDBreatheEffect,
                    &StalkerEffect,
+                   &LEDRainbowEffect, &LEDRainbowWaveEffect, &LEDDigitalRainEffect,
+//                   &solidYellow,
+                   &LEDBreatheEffect,
+
 #ifndef ARDUINO_VIRTUAL
-                   &LetterGuesserEffect,
+                   //&LetterGuesserEffect,
 #endif
                    &NumLock,
 
@@ -165,7 +167,7 @@ void setup() {
   LEDRainbowEffect.brightness(120);
   LEDRainbowWaveEffect.brightness(120);
   StalkerEffect.variant = STALKER(BlazingTrail);
-  LEDRainbowEffect.activate();
+  StalkerEffect.activate();
 }
 
 
