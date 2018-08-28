@@ -14,10 +14,10 @@
 #include "Kaleidoscope-Macros.h"
 #include "Kaleidoscope-MacrosOnTheFly.h"
 #include "Kaleidoscope-LEDControl.h"
-#include "Kaleidoscope-Numlock.h"
+//#include "Kaleidoscope-NumPad.h"
 #include "Kaleidoscope-OneShot.h"
 #include "Kaleidoscope-Escape-OneShot.h"
-#include "Kaleidoscope-Steno.h"
+//#include "Kaleidoscope-Steno.h"
 
 #include "LED-Off.h"
 //#include "Kaleidoscope-LEDEffect-BootGreeting.h"
@@ -26,7 +26,7 @@
 //#include "Kaleidoscope-LEDEffect-Chase.h"
 #include "Kaleidoscope-LEDEffect-Rainbow.h"
 #include "Kaleidoscope-LED-Stalker.h"
-#include "Kaleidoscope-LEDEffect-DigitalRain.h"
+//#include "Kaleidoscope-LEDEffect-DigitalRain.h"
 #ifndef ARDUINO_VIRTUAL
 //#include "Kaleidoscope-LED-LetterGuesser.h"
 #endif
@@ -37,11 +37,11 @@
 #define MACRO_LEDTOGGLE 3
 #define MACRO_RAPIDFIRECLICK 4
 
-enum { QWERTY, STENO, FUNCTION, NUMPAD, STARCRAFT1, STARCRAFT2 };  // layers
+enum { QWERTY, /*STENO,*/ FUNCTION, NUMPAD, STARCRAFT1, STARCRAFT2 };  // layers
 
 const Key keymaps[][ROWS][COLS] PROGMEM = {
   [QWERTY] = KEYMAP_STACKED
-  (LockLayer(STENO), Key_1, Key_2, Key_3, Key_4, Key_5, Key_LEDEffectNext,
+  (/*LockLayer(STENO)*/XXX, Key_1, Key_2, Key_3, Key_4, Key_5, Key_LEDEffectNext,
    Key_Backtick,     Key_Q, Key_W, Key_E, Key_R, Key_T, Key_MacroRec,
    Key_Tab,          Key_A, Key_S, Key_D, Key_F, Key_G,
    Key_Home,         Key_Z, Key_X, Key_C, Key_V, Key_B, Key_End,
@@ -55,6 +55,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    Key_LeftAlt, Key_LeftGui, Key_Spacebar, Key_Delete,
    ShiftToLayer(FUNCTION)),
 
+/*
   [STENO] = KEYMAP_STACKED
   (___,    XXX,   XXX,   XXX,   XXX,   XXX,   S(N6),
    XXX,    S(N1), S(N2), S(N3), S(N4), S(N5), S(ST1),
@@ -69,6 +70,7 @@ const Key keymaps[][ROWS][COLS] PROGMEM = {
    S(ST4), S(ST4), S(RR), S(BR), S(GR), S(SR), S(ZR),
    S(E), S(U), XXX, S(RE2),
    ShiftToLayer(FUNCTION)),
+*/
 
   [FUNCTION] = KEYMAP_STACKED
   (___,      Key_F1,           Key_F2,      Key_F3,        Key_F4,        Key_F5,           XXX,
@@ -165,34 +167,32 @@ const macro_t *macroAction(uint8_t macroIndex, uint8_t keyState) {
   return MACRO_NONE;
 }
 
+KALEIDOSCOPE_INIT_PLUGINS(LEDControl, LEDOff,
+                          StalkerEffect,
+                          LEDRainbowEffect, LEDRainbowWaveEffect, //LEDDigitalRainEffect,
+                          LEDBreatheEffect,
+#ifndef ARDUINO_VIRTUAL
+                          //LetterGuesserEffect,
+#endif
+                          //NumPad,
+                          //GeminiPR,  // Steno
+                          OneShot,
+                          EscapeOneShot,
+                          Macros,
+                          MacrosOnTheFly,
+                          MouseKeys,
+                          ActiveModColorEffect);
+
 void setup() {
   Serial.begin(9600);
   Kaleidoscope.setup();
-  Kaleidoscope.use(&LEDControl, &LEDOff,
-                   &StalkerEffect,
-                   &LEDRainbowEffect, &LEDRainbowWaveEffect, &LEDDigitalRainEffect,
-//                   &solidYellow,
-                   &LEDBreatheEffect,
 
-#ifndef ARDUINO_VIRTUAL
-                   //&LetterGuesserEffect,
-#endif
-                   &NumLock,
-
-                   &GeminiPR,  // Steno
-                   &OneShot,
-                   &EscapeOneShot,
-                   &Macros,
-                   &MacrosOnTheFly,
-                   &MouseKeys,
-                   &ActiveModColorEffect,
-                   NULL);
-
-  NumLock.numPadLayer = NUMPAD;
+  //NumPad.color = CRGB(0, 0, 160);
+  //NumPad.lock_hue = 85;
   LEDRainbowEffect.brightness(120);
   LEDRainbowWaveEffect.brightness(120);
   StalkerEffect.variant = STALKER(BlazingTrail);
-  StalkerEffect.activate();
+  //LEDRainbowEffect.activate();
 }
 
 
