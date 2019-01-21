@@ -19,7 +19,6 @@
 #include "Kaleidoscope-Escape-OneShot.h"
 //#include "Kaleidoscope-Steno.h"
 
-#include "LED-Off.h"
 //#include "Kaleidoscope-LEDEffect-BootGreeting.h"
 //#include "Kaleidoscope-LEDEffect-SolidColor.h"
 #include "Kaleidoscope-LEDEffect-Breathe.h"
