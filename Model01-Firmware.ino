@@ -30,6 +30,7 @@
 //#include "Kaleidoscope-LED-LetterGuesser.h"
 #endif
 #include "Kaleidoscope-LED-ActiveModColor.h"
+#include "Kaleidoscope-Model01-TestMode.h"
 
 #define MACRO_VERSION_INFO 1
 #define MACRO_ANY 2
@@ -180,7 +181,8 @@ KALEIDOSCOPE_INIT_PLUGINS(LEDControl, LEDOff,
                           Macros,
                           MacrosOnTheFly,
                           MouseKeys,
-                          ActiveModColorEffect);
+                          ActiveModColorEffect,
+                          TestMode);
 
 void setup() {
   Serial.begin(9600);
